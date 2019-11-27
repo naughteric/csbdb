@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Input Faculty/Staff</title>
+  </head>
+  <body>
+  <div class="container">
+    <form>
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="psid">PSID</label> 
+                <input type="text" class="form-control" id="psid">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="fname">First Name</label> 
+                <input type="text" class="form-control" id="fname">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="lname">Last Name</label> 
+                <input type="text" class="form-control" id="lname">
+            </div>
+        </div>
+        <div class="form-row">
+             <div class="form-group col-md-4">
+                <label for="timebase">Time Base</label>
+                <select id="timebase" class="form-control">
+                    <option disabled selected>Select a Time Base</option>
+                    <? for(var t=0;t<tlist.length;t++){ ?>
+                        <option><?= tlist[t]; ?></option>
+                    <? } ?>
+                </select>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="status">Status</label>
+                <select id="status" class="form-control">
+                    <option disabled selected>Select a Status</option>
+                    <? for(var s=0;s<slist.length;s++){ ?>
+                        <option><?= slist[s]; ?></option>
+                    <? } ?>
+                </select>
+            </div>
+            <div class="form-group col-md-4">
+                <label for="emtype">Employment Type</label>
+                <select id="emtype" class="form-control">
+                    <option disabled selected>Select Employment Type</option>
+                    <? for(var y=0;y<tylist.length;y++){ ?>
+                        <option><?= tylist[y]; ?></option>
+                    <? } ?>
+                </select>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="department">Department</label>
+                <select id="department" class="form-control">
+                    <option disabled selected>Select a Department</option>
+                    <? for(var d=0;d<dlist.length;d++){ ?>
+                        <option><?= dlist[d]; ?></option>
+                    <? } ?>
+                </select>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="classif">Classification</label>
+                <select id="classif" class="form-control">
+                    <option disabled selected>Select a Classification</option>
+                    <? for(var i=0;i<list.length;i++){ ?>
+                        <option><?= list[i]; ?></option>
+                    <? } ?>
+                </select>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="officenum">Office Number Ex. PB-321</label> 
+                <input type="text" id="officenum" class="form-control">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="officephone">Phone #: (Office) (559)555-5555</label> 
+                <input type="text" id="officephone" class="form-control">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="email">Email</label>
+                <input type="text" id="email" class="form-control">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label for="homeaddress">Home Address</label> 
+                <input type="text" id="homeaddress" class="form-control">
+            </div>
+            <div class="form-group col-md-4">
+                <label>Phone #: (Home) (559)555-5555</label>
+                <input type="text" id="homephone" class="form-control">
+            </div>
+            <div class="form-group col-md-4">
+                <label for="ferp">FERP Start Year</label> 
+                <input type="text" id="ferp" class="form-control" placeholder="2019">
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="form-group col-md-2">
+                <button type="button" class="btn btn-outline-primary btn-lg" id="saveFac">Save</button>
+            </div>
+            <div class="form-group col-md-2">
+                <button type="button" class="btn btn-outline-primary btn-lg" id="btnNew" disabled="true">New</button>
+            </div>
+            <div class="form-group col-md-2">
+                <button type="button" class="btn btn-outline-primary btn-lg" id="btnEdit">Edit</button>
+            </div>
+            <div class="form-group col-md-2">
+                <button type="button" class="btn btn-outline-primary btn-lg" id="update" disabled="true">Update</button>
+            </div>
+            <div class="form-group col-md-2">
+                <button type="button" class="btn btn-outline-primary btn-lg" id="searchid" disabled="true">Search</button>
+            </div>
+            <div class="form-group col-md-2">
+                <button type="button" class="btn btn-outline-danger btn-lg" id="deleteFac" disabled="true">Delete</button>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="editList">Choose Faculty Member to Edit</label>
+                <select id="editList" disabled="true" class="form-control">
+                    <option disabled selected>Select Faculty Member to Edit..</option>
+                    <? for(var id=0;id<edlist.length;id++){ ?>
+                        <option><?= edlist[id]; ?></option>
+                    <? } ?>
+                </select>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="search">Search PSID</label> 
+                <input type="text" class="form-control" id="search" disabled="true">
+            </div>
+        </div>
+    </form>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <script>
+            //Listens for the user to click the save button and runs the saverec function
+            document.getElementById("saveFac").addEventListener("click",checkpsid);
+            document.getElementById("btnEdit").addEventListener("click",editMode);
+            document.getElementById("editList").addEventListener("change",facEdit);
+            document.getElementById("update").addEventListener("click",updtRec);
+            document.getElementById("btnNew").addEventListener("click",newEntry);
+            document.getElementById("searchid").addEventListener("click",byId);
+            document.getElementById("deleteFac").addEventListener("click",deleteFac);
+            
+            function editMode(){
+        
+                document.getElementById("saveFac").disabled = true;
+                document.getElementById("update").disabled = false;
+                document.getElementById("editList").disabled = false;
+                document.getElementById("btnNew").disabled = false;
+                document.getElementById("searchid").disabled = false;
+                document.getElementById("search").disabled = false;
+                document.getElementById("deleteFac").disabled = false;
+                
+            }
+            
+            function newEntry(){
+                resetFields()
+                document.getElementById("saveFac").disabled = false;
+                document.getElementById("update").disabled = true;
+                document.getElementById("editList").disabled = true;
+                document.getElementById("btnNew").disabled = true;
+                document.getElementById("searchid").disabled = true;
+                document.getElementById("search").disabled = true;
+                document.getElementById("deleteFac").disabled = true;
+            }
+        
+            function facEdit(){
+        
+                var facToEdit = document.getElementById("editList").value;
+                var facIndex = facToEdit.toString();
+        
+                google.script.run.withSuccessHandler(retFac).scrThr(facIndex);
+        
+            }
+            
+            function byId(){
+            
+               var facById = document.getElementById("search").value
+               var facIndex = facById.toString();
+               
+               google.script.run.withSuccessHandler(retFac).searchID(facIndex);
+            
+            }
+            
+            function deleteFac(){
+               var psid = document.getElementById("psid").value;
+               if (psid === ""){
+                  alert("No Faculty Member Selected");
+               } else {
+                  var respond = prompt("Enter YES to Delete Faculty Member");
+                  if (respond === "YES") {
+                     google.script.run.withSuccessHandler(deleteSuccess).deleteFaculty(psid);
+                  } else {
+                     alert("Faculty Member was not Deleted");
+                  }  
+               }
+            
+            }
+            
+            function deleteSuccess(success){
+               alert(success);
+               resetFields();
+            }
+            
+            
+            function retFac(facMember){
+        
+                document.getElementById("psid").value = facMember[0];
+                document.getElementById("lname").value = facMember[1];
+                document.getElementById("fname").value = facMember[2];
+                document.getElementById("classif").value = facMember[3];
+                document.getElementById("timebase").value = facMember[4];
+                document.getElementById("status").value = facMember[5];
+                document.getElementById("emtype").value = facMember[6];
+                document.getElementById("department").value = facMember[7];
+                document.getElementById("officenum").value = facMember[8];
+                document.getElementById("officephone").value = facMember[9];
+                document.getElementById("email").value = facMember[10];
+                document.getElementById("ferp").value = facMember[11];
+                document.getElementById("homeaddress").value = facMember[12];
+                document.getElementById("homephone").value = facMember[13];
+        
+            }
+        
+            function updtRec(){
+        
+                var idToEdit = document.getElementById("psid").value;
+                
+                var facIndex = idToEdit.toString();
+            
+                var psidGet = document.getElementById("psid").value;
+                var lnameGet = document.getElementById("lname").value;
+                var fnameGet = document.getElementById("fname").value;
+                var getClassif = document.getElementById("classif").value;
+                var getTime = document.getElementById("timebase").value;
+                var getStat = document.getElementById("status").value;
+                var getType = document.getElementById("emtype").value;
+                var getDpt = document.getElementById("department").value;
+                var getOffNum = document.getElementById("officenum").value;
+                var getOffPh = document.getElementById("officephone").value;
+                var getEmail = document.getElementById("email").value;
+                var getFerp = document.getElementById("ferp").value;
+                var getHomeAdd = document.getElementById("homeaddress").value;
+                var getHomePh = document.getElementById("homephone").value;
+        
+                alert("Updated Record");
+                google.script.run.saveUpdt(facIndex,psidGet,lnameGet,fnameGet,getClassif,getTime,getStat,getType,getDpt,getOffNum,getOffPh,getEmail,getFerp,getHomeAdd,getHomePh);
+                
+               resetFields();
+        
+            }
+            
+            
+            
+            
+            
+            //-------------------------------------------------------------------------------
+        
+            function checkpsid(){
+                var psidCheck = document.getElementById("psid").value;
+                var idToString = psidCheck.toString();
+                if (psidCheck === ""){
+                 alert("Please Enter a PSID")
+                } else{
+                google.script.run.withSuccessHandler(dupeIdFound).checkDupe(idToString);
+                }
+            }
+        
+            function dupeIdFound(isDupe){
+                if (isDupe === 1){
+                    alert("Similar PSID Found!");
+                    document.getElementById("psid").value = "";
+                } else {
+                    alert("Faculty Member Saved!");
+                    saverec();
+                }
+            }
+            
+            function saverec(){
+            
+            
+               //Grabs the values from each field 
+               var psidGet = document.getElementById("psid").value;
+               var lnameGet = document.getElementById("lname").value;
+               var fnameGet = document.getElementById("fname").value;
+               var classifGet = document.getElementById("classif").value;
+               var timebaseGet = document.getElementById("timebase").value;
+               var statusGet = document.getElementById("status").value;
+               var emtypeGet = document.getElementById("emtype").value;
+               var departmentGet = document.getElementById("department").value;
+               var officenumGet = document.getElementById("officenum").value;
+               var officephoneGet = document.getElementById("officephone").value;
+               var emailGet = document.getElementById("email").value;
+               var ferpGet = document.getElementById("ferp").value;
+               var homeaddressGet = document.getElementById("homeaddress").value;
+               var homephoneGet = document.getElementById("homephone").value;
+            
+            
+                //Clear out Non Selected Drop Downs Values
+                
+                if (timebaseGet === "Select a Time Base"){
+                  timebaseGet = " ";
+                }
+                if (classifGet === "Select a Classification"){
+                  classifGet = " ";
+                }
+                if (statusGet === "Select a Status"){
+                  statusGet = " ";
+                }
+                if (emtypeGet === "Select Employment Type"){
+                  emtypeGet = " ";
+                }
+                if (departmentGet === "Select a Department"){
+                  departmentGet = " ";
+                }
+                                            
+                //End Clear Out
+            
+            
+               //Send Values from Form to userClicked function in Code.gs then clear the form for re-entry
+               google.script.run.userClicked(psidGet,lnameGet,fnameGet,classifGet,timebaseGet,statusGet,emtypeGet,departmentGet,officenumGet,officephoneGet,emailGet,ferpGet,homeaddressGet,homephoneGet);
+               resetFields();
+               //--------------------------------------------------
+            
+            
+            
+            //var opentab = SpreadsheetApp.getActiveRangeList()
+            
+            }
+            
+            function resetFields(){
+               document.getElementById("psid").value = "";
+               document.getElementById("lname").value = "";
+               document.getElementById("fname").value = "";
+               document.getElementById("classif").value = "Select a Classification";
+               document.getElementById("timebase").value = "Select a Time Base";
+               document.getElementById("status").value = "Select a Status";
+               document.getElementById("emtype").value = "Select Employment Type";
+               document.getElementById("department").value = "Select a Department";
+               document.getElementById("officenum").value = "";
+               document.getElementById("officephone").value = "";
+               document.getElementById("email").value = "";
+               document.getElementById("ferp").value = "";
+               document.getElementById("homeaddress").value = "";
+               document.getElementById("homephone").value = "";
+            }
+    </script>
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
+

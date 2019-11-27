@@ -1,0 +1,32 @@
+<html>
+  <head>
+    <base target="_top">
+    <title>Upload Files</title>
+  </head>
+  <body>
+    <h1>Upload PeopleSoft Report</h1>
+    <h4>Must be named report.csv</h4>
+    <form>
+        <input type="file" name="myFile" mulitple>
+        <br>
+        <br>
+        <input type="button" id="submitBtn" value="Upload Files">
+        <label id="resp"></label>
+    </form>
+    <script>
+      document.getElementById('submitBtn').addEventListener('click',
+        function(e){
+          google.script.run.withSuccessHandler(onSuccess).uploadFiles(this.parentNode)
+          alert("Upload Started");
+        })
+        
+        function onSuccess(data){
+        alert(data)
+          //document.getElementById('resp').innerHTML = "Classes Report Uploaded and Converted " +data;
+        }
+       
+    </script>
+  </body>
+</html>
+
+
